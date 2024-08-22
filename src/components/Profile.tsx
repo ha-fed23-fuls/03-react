@@ -4,6 +4,8 @@ type ProfileProps = {
 	email: string;
 }
 
+// Äldre syntax:
+// const Profile: React.FC<ProfileProps = .....
 const Profile = (props: ProfileProps) => {
 
 	return (
