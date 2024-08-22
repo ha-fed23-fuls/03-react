@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
+
+type EventCallback = (event: SyntheticEvent) => void
 
 const Counter = () => {
 	const [count, setCount] = useState<number>(0)
-	// setCount(25)
+
+	const handleClick: EventCallback = () => {
+		setCount(count + 1)
+	}
 
 	return (
 		<div className="counter">
 			The count is: {count}.
-			<button> +1 </button>
+			<button onClick={handleClick}> +1 </button>
+			<button onClick={(): void => {setCount(count + 1)}}> +1 </button>
 		</div>
 	)
 }
